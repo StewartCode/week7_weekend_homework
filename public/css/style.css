@@ -1,0 +1,46 @@
+#mappack {
+  height: 500px;
+  width: 1000px;
+}
+
+
+
+
+
+/* #title {
+  font-size: 50px;
+  text-align: center;
+  font-family: helvetica;
+} */
+
+
+/* .regions {
+  margin: auto;
+  font-family: helvetica;
+} */
+
+
+.meteorites {
+  text-align: center;
+  width : 200px;
+  background-color: white;
+}
+
+body {
+  /* background-image: url('1.1.png'); */
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100%;
+  background-color: grey;
+}
+
+/* #crime-dates {
+  font-size: 22px;
+  text-align: left;
+  margin-left: 150px;
+} */
+
+/* #regions {
+  text-align: center;
+  vertical-align: baseline;
+} */
