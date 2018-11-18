@@ -53,8 +53,9 @@ MapAdd.prototype.addAPin = function(long, lat) {
       className: 'my-class'
     })
     .setLngLat([long, lat])
-    .setHTML('<p>Location::</p>' + string.name +
-            '<p>Mass::</p>' + string.mass + " " + "tons"
+    .setHTML('<p id="description">Location :</p>' + string.name +
+            '<p id="description">Mass :</p>' + string.mass + " " + "tons" +
+            '<p id="description">Year :</p>' + string.year[0]+ string.year[1]+ string.year[2]+ string.year[3]
   )
     .addTo(map);
 };
