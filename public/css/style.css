@@ -1,5 +1,5 @@
 #mappack {
-  height: 500px;
+  height: 700px;
   width: 1000px;
 }
 
@@ -9,11 +9,12 @@
 
 
 
-/* #title {
+#title {
   font-size: 50px;
   text-align: center;
   font-family: helvetica;
-} */
+  color: white;
+}
 
 
 /* .regions {
@@ -33,7 +34,7 @@ body {
   background-repeat: no-repeat;
   background-position: center;
   background-size: 100%;
-  background-color: grey;
+  background-color: black;
 }
 
 /* #crime-dates {
