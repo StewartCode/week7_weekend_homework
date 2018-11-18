@@ -1,4 +1,5 @@
 const PubSub = require('../helpers/pub_sub.js');
+const MapAdd = require('./map_add.js');
 
 const SelectedView = function(element) {
   this.element = element;

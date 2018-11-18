@@ -3,6 +3,7 @@ const PubSub = require('../helpers/pub_sub.js');
 const GetData = require('../helpers/get_data.js');
 const Display_Results = require('./display_results.js');
 
+
 const MapAdd = function(target) {
   this.target = target;
   //console.log(this.target);
@@ -12,6 +13,8 @@ let map;
 let marker;
 let popup;
 let popupOffsets;
+let counter = 1;
+
 
 MapAdd.prototype.addMap = function(x) {
   mapboxgl.accessToken = 'pk.eyJ1IjoibGluZG9ucGVhc2xleSIsImEiOiJjam9rbHllODAwM3R6M3ByeTBicTN4N3ZyIn0.GY5WQ4ZDwAHUxQIUsqBlmQ';
@@ -27,7 +30,6 @@ MapAdd.prototype.addMap = function(x) {
 
 };
 MapAdd.prototype.addAPin = function(long, lat) {
-
   marker = new mapboxgl.Marker()
     .setLngLat([long, lat])
     .addTo(map);
@@ -35,7 +37,7 @@ MapAdd.prototype.addAPin = function(long, lat) {
 
 MapAdd.prototype.popup = function(long, lat, string) {
 
-//**************************************************************** to the next stars not working mouse hover
+  //**************************************************************** to the next stars not working mouse hover
   map.on('mouseenter', 'places', function(e) {
     console.log(e);
     //Change the cursor style as a UI indicator.
@@ -60,7 +62,7 @@ MapAdd.prototype.popup = function(long, lat, string) {
     popup.remove();
   });
 
-//*******************************************************************
+  //*******************************************************************
 
   let markerHeight = 50,
     markerRadius = 10,
@@ -95,7 +97,39 @@ MapAdd.prototype.addAPin2 = function(long, lat, ) {
     .addTo(map);
 };
 
+PubSub.subscribe('from_app_to_mapadd:delete', (l) => {
+  target = l.detail;
+  target.addEventListener('click', deleteHandler)
+});
 
+deleteHandler = function(){
+  marker.remove();
+  popup.remove();
+}
+MapAdd.prototype.deleteLastPoint = function () {
+  console.log('loop start');
+  if(counter < 1){
+    marker.remove();
+    //popup.remove();
+    console.log('no log');
+    counter -= 1;
+    console.log('loop end');
+  }
+  counter -= 1;
+  console.log('counter post');
+};
+MapAdd.prototype.deleteLastPopup = function () {
+  console.log('loop start');
+  if(counter < 1){
+    popup.remove();
+    //marker.remove();
+    console.log('no log');
+    counter -= 1;
+    console.log('loop end');
+  }
+  counter -= 1;
+  console.log('counter post');
+};
 
 
 module.exports = MapAdd;

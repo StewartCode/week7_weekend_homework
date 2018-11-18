@@ -17,6 +17,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const mapPackTarget = document.querySelector('#mappack');
   const allSwitch = document.querySelector('#all-switch');
   PubSub.publish('from_app_to_processing:all_button', allSwitch);
+  const deleteButton = document.querySelector('#delete');
+  PubSub.publish('from_app_to_mapadd:delete', deleteButton);
+  const slider = document.querySelector('#slider-round');
+  PubSub.publish('from_app_to_display_results:slider', slider);
+
 
   const mapAdd = new MapAdd(mapPackTarget);
   mapAdd.addMap(mapPackTarget);
@@ -89,8 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       };
     };
-    array.sort(function(a,b){return a - b});
-    array.reverse();
+    array.sort(function(a,b){return b - a});
     if (counter2 > 0) {
       for (z of array) {
         //console.log(z);

@@ -1,6 +1,6 @@
 #mappack {
   height: 800px;
-  width: 1060px;
+  width: 1155px;
 }
 
 #description {
@@ -16,7 +16,11 @@
   color: black;
 }
 
-
+#written{
+  font-size: 11px;
+  text-align: right;
+  color: white
+}
 /* .regions {
   margin: auto;
   font-family: helvetica;
@@ -33,7 +37,7 @@ body {
   background-image: url('1.1.png');
   background-repeat: no-repeat;
   background-position: center;
-  background-size: 100%;
+  background-size: 110%;
   background-color: grey;
 }
 

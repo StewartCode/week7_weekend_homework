@@ -45,10 +45,10 @@ PubSub.subscribe('from_app_to_processing:all_button', (b) => {
 });
 
 function eventClick() {
-  console.log('triggerggjgAllPoints');
+  //console.log('triggerggjgAllPoints');
   event.preventDefault();
   const sentToMap = new MapAdd();
-  console.log('triggerggjgAllPoints2');
+  //console.log('triggerggjgAllPoints2');
   data = fulldata.detail;
   for (d of data) {
     if (d.reclong !== undefined) {
@@ -56,10 +56,6 @@ function eventClick() {
     }
   }
 };
-
-
-
-
 
 
 module.exports = Processing;

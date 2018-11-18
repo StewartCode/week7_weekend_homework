@@ -15,6 +15,19 @@ DisplayResults.prototype.sendToDisplay = function(target) {
   // target.appendChild(name);
   const test = new MapAdd(info.reclong, info.reclat, info.name)
   test.popup(info.reclong, info.reclat, info);
+
+  const test2 = new MapAdd;
+  PubSub.subscribe('from_app_to_display_results:slider', () => {
+    s = slider.detail
+    console.log(s);
+    test2.deleteLastPoint()  //***********this doesn't work 
+  });
+
+
+  // const test3 = new MapAdd;
+  // test3.deleteLastpopup()
+
+    /////this deletes the last flag
   // const mass = this.createElement('h2', info.mass);
   // target.appendChild(mass);
 
