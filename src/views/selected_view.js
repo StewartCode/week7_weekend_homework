@@ -21,6 +21,20 @@ SelectedView.prototype.dropdowned = function(stuff) {
   });
 };
 
+SelectedView.prototype.dropdowned2 = function(stuff) {
+  this.element.addEventListener('change', (evt) => {
+    const selectedIndex = evt.target.value;
+    console.log(selectedIndex);
+    PubSub.publish('SelectView:change2', selectedIndex);
+    // if (counter > 0){
+    // var audio = new Audio('audio1.5.mp3');
+    // audio.play();
+    // counter -= 1;
+    //  }
+
+  });
+};
+
 
 
 

@@ -31,13 +31,11 @@ MapAdd.prototype.addAPin = function(long, lat) {
   marker = new mapboxgl.Marker()
     .setLngLat([long, lat])
     .addTo(map);
-  //this.popup(long, lat);
-  //console.log(popupOffsets);
 };
 
 MapAdd.prototype.popup = function(long, lat, string) {
 
-//**************************************************************** to the next stars not working
+//**************************************************************** to the next stars not working mouse hover
   map.on('mouseenter', 'places', function(e) {
     console.log(e);
     //Change the cursor style as a UI indicator.
@@ -84,7 +82,7 @@ MapAdd.prototype.popup = function(long, lat, string) {
 
     .setLngLat([long, lat])
     .setHTML('<p id="description">Location :</p>' + string.name +
-      '<p id="description">Mass :</p>' + string.mass + " " + "Tons" +
+      '<p id="description">Mass :</p>' + string.mass + " " + "Grams" +
       '<p id="description">Year :</p>' + string.year[0] + string.year[1] + string.year[2] + string.year[3]
     )
     .addTo(map);

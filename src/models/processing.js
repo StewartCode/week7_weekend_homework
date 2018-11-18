@@ -27,6 +27,15 @@ Processing.prototype.rawDataPacket = function(y) {
       postProcessData.sendToDisplay(this.element);
       PubSub.publish('processing_to_app:selectedData', found);
     })
+    PubSub.subscribe('SelectView:change2', (z) => {
+      selectedView = z.detail;
+      const found = m.find(function(mzoom) {
+        return mzoom.mass === selectedView;
+      });
+      const postProcessData = new DisplayResults(found);
+      postProcessData.sendToDisplay(this.element);
+      PubSub.publish('processing_to_app:selectedData', found);
+    })
   })
 };
 
