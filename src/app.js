@@ -14,6 +14,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const selectElement4 = document.querySelector('#meteorites4');
   const selectElementList = document.querySelector('#meteorite-data');
   const mapPackTarget = document.querySelector('#mappack');
+  const allSwitch = document.querySelector('#all-switch');
+  PubSub.publish('from_app_to_processing:all_button', allSwitch);
 
   const mapAdd = new MapAdd(mapPackTarget);
   mapAdd.addMap(mapPackTarget);
@@ -27,17 +29,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const dropdown4 = new SelectedView(selectElement4);
   dropdown4.dropdowned(selectElement4);
 
-
   const getData = new GetData();
   getData.getData();
 
+
   const processing = new Processing(selectElementList);
-  processing.rawDataPacket(selectElement);
-  const processing2 = new Processing(selectElementList);
-  processing.rawDataPacket(selectElement);
-  const processing3 = new Processing(selectElementList);
-  processing.rawDataPacket(selectElement);
-  const processing4 = new Processing(selectElementList);
   processing.rawDataPacket(selectElement);
 
   PubSub.subscribe('processing_to_app:decoded_data', (data) => {
@@ -48,6 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let target;
     let option;
     for (m of meteorite) {
+      if (m.reclong !== undefined) {
 
       if (counter > 0 && counter < 251) {
         target = document.querySelector('#meteorites4');
@@ -80,10 +77,8 @@ document.addEventListener('DOMContentLoaded', () => {
         option.id = m.name;
         option.textContent = m.name;
         target.appendChild(option);
+       }
       };
     };
   });
-  // const test =  new GetData;
-  // test.getdata()
 });
-console.log('testthis');
