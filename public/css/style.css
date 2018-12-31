@@ -1,31 +1,67 @@
 #mappack {
-  height: 800px;
-  width: 1155px;
+  height: 900px;
+  width: 1800px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 1px;
+  padding-bottom: 20px;
+  border-color: black;
+  border-radius: 30px
+}
+
+.pop-ups {
+  font : helvetica;
+  border-radius: 100px
+}
+
+.top-of-the-map{
+  display: flex row;
+  grid-template-columns: 1fr 1fr;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 20px;
+    padding-bottom: 5px;
+}
+
+.map{
+  display: flex;
+  grid-template-columns: 1fr 1fr;
 }
 
 #description {
   color: red;
 }
 
-
-
 #title {
-  font-size: 50px;
+  font-size: 32px;
   text-align: center;
   font-family: helvetica;
-  color: black;
+  color: white;
+}
+
+#p {
+  font-size: 11px;
+  text-align: center;
+  font-family: helvetica;
+  color: white;
 }
 
 #written{
   font-size: 11px;
   text-align: right;
-  color: white
-}
-/* .regions {
-  margin: auto;
-  font-family: helvetica;
-} */
+  color: white;
+  font-family: 'Mrs Saint Delafield', cursive;
 
+}
+
+#all-switch{
+  background-color: black;
+  border: 0px;
+}
+
+.switch {
+  padding: 5px;
+}
 
 .meteorites {
   text-align: center;
@@ -37,17 +73,27 @@ body {
   background-image: url('1.1.png');
   background-repeat: no-repeat;
   background-position: center;
-  background-size: 110%;
+  background-size: cover;
   background-color: grey;
 }
+.switch {
+  color: white;
+}
 
-/* #crime-dates {
-  font-size: 22px;
-  text-align: left;
-  margin-left: 150px;
-} */
-
-/* #regions {
-  text-align: center;
-  vertical-align: baseline;
-} */
+.shade {
+		position: relative;
+		margin: -21px 0 0;
+		padding: 0;
+		display: block;
+		width: 100%;
+		height: 24px;
+		opacity: 0.25;
+		text-align: center;
+}
+h1 {
+		position: relative;
+		font-size: 42px;
+		line-height: 48px;
+		color: #999;
+		text-align: center;
+}

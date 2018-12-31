@@ -8,7 +8,8 @@ const Processing = function(element) {
 
 let fulldata;
 let selectedView;
-// PubSub.publish('from_processing_to_map:selected_data_set', selectedView)
+let audio = new Audio('audio1.2.mp3');
+
 PubSub.subscribe('processing_to_app:decoded_data2', (fulldataSet) => {
   fulldata = fulldataSet;
 });
@@ -45,17 +46,20 @@ PubSub.subscribe('from_app_to_processing:all_button', (b) => {
 });
 
 function eventClick() {
-  //console.log('triggerggjgAllPoints');
+  audio.play();
+
   event.preventDefault();
   const sentToMap = new MapAdd();
-  //console.log('triggerggjgAllPoints2');
   data = fulldata.detail;
   for (d of data) {
-    if (d.reclong !== undefined) {
-      sentToMap.addAPin2(d.reclong, d.reclat);
+    if (d.year !== undefined) {
+      if (d.mass !== undefined) {
+        if (d.reclong !== undefined) {
+          sentToMap.addAPin2(d.reclong, d.reclat, d);
+        }
+      }
     }
   }
 };
-
 
 module.exports = Processing;
